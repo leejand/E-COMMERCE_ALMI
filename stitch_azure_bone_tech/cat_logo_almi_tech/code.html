@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALMI | All Headphones Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f6f3f2",
+                    "surface-tint": "#2156ca",
+                    "on-secondary-fixed-variant": "#474741",
+                    "on-tertiary-fixed": "#390c00",
+                    "primary-container": "#0047bb",
+                    "tertiary-fixed-dim": "#ffb59c",
+                    "on-surface-variant": "#434653",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#1c1c17",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "secondary-fixed-dim": "#c9c6bf",
+                    "on-tertiary-fixed-variant": "#832700",
+                    "surface-bright": "#fcf9f8",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#00174a",
+                    "on-secondary-container": "#65645e",
+                    "on-primary-container": "#afc1ff",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1c1b1b",
+                    "inverse-surface": "#313030",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c3c6d6",
+                    "surface-container-high": "#eae7e7",
+                    "background": "#fcf9f8",
+                    "secondary-fixed": "#e5e2da",
+                    "inverse-on-surface": "#f3f0ef",
+                    "primary": "#00328a",
+                    "tertiary": "#6c1f00",
+                    "tertiary-container": "#932d00",
+                    "on-primary-fixed-variant": "#003ea6",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#b3c5ff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-background": "#1c1b1b",
+                    "outline": "#737685",
+                    "surface-container-highest": "#e5e2e1",
+                    "secondary": "#5f5e58",
+                    "secondary-container": "#e5e2da",
+                    "on-tertiary-container": "#ffb096",
+                    "surface-variant": "#e5e2e1",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container": "#f0eded",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "margin-desktop": "64px",
+                    "section-gap": "120px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .product-card-hover:hover .add-btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .add-btn {
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #00328a;
+            border-radius: 10px;
+        }
+        .filter-section:hover .filter-label {
+            color: #00328a;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="menu">menu</span>
+<span class="font-headline-lg-mobile md:font-headline-lg text-primary tracking-tighter">ALMI</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-label-bold hover:opacity-80 transition-opacity" href="#">Catalog</a>
+<a class="text-secondary font-label-bold hover:opacity-80 transition-opacity" href="#">Collections</a>
+<a class="text-secondary font-label-bold hover:opacity-80 transition-opacity" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer transition-colors" data-icon="search">search</span>
+<div class="relative group">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 min-h-screen container mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Page Title -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-2">All Headphones</h1>
+<p class="text-on-surface-variant font-body-md">Refined audio engineering for the discerning listener.</p>
+</div>
+<div class="flex items-center gap-4 text-label-bold">
+<span class="text-secondary">42 Results</span>
+<div class="flex items-center gap-2 border border-outline px-4 py-2 rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<span>Sort by: Featured</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Layout Wrapper -->
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Filter Sidebar -->
+<aside class="w-full lg:w-64 flex-shrink-0 space-y-8">
+<!-- Filter Group: Type -->
+<div class="filter-section border-b border-outline-variant pb-6">
+<div class="flex justify-between items-center mb-4 cursor-pointer">
+<span class="filter-label font-label-bold uppercase text-xs tracking-widest text-secondary transition-colors">Type</span>
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Over-ear</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">On-ear</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">In-ear</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Brand -->
+<div class="filter-section border-b border-outline-variant pb-6">
+<div class="flex justify-between items-center mb-4 cursor-pointer">
+<span class="filter-label font-label-bold uppercase text-xs tracking-widest text-secondary transition-colors">Brand</span>
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Almi Pro</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Studio Labs</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Price -->
+<div class="filter-section border-b border-outline-variant pb-6">
+<div class="flex justify-between items-center mb-4 cursor-pointer">
+<span class="filter-label font-label-bold uppercase text-xs tracking-widest text-secondary transition-colors">Price Range</span>
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</div>
+<div class="pt-2 px-1">
+<input class="w-full h-1 bg-secondary-fixed rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between mt-4 text-xs font-label-bold text-secondary">
+<span>$0</span>
+<span>$999</span>
+</div>
+</div>
+</div>
+<!-- Reset Filters -->
+<button class="w-full py-3 border border-outline text-on-surface font-label-bold hover:bg-surface-container transition-colors uppercase tracking-widest text-xs">
+                    Clear All Filters
+                </button>
+</aside>
+<!-- Product Grid -->
+<div class="flex-grow">
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-6">
+<!-- Product 1 -->
+<div class="group product-card-hover">
+<div class="relative aspect-square bg-secondary-fixed flex items-center justify-center mb-6 overflow-hidden">
+<img class="w-3/4 object-contain group-hover:scale-105 transition-transform duration-500" data-alt="A pair of premium professional over-ear headphones in a clinical, bright studio setting with soft diffused lighting. The headphones are sleek, matte black with chrome accents, sitting perfectly centered against a minimal off-white background. The composition is clean and luxurious, reflecting a high-end audio engineering aesthetic. Shadows are subtle and intentional to create depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlZ7PUUTZCBK0UGFIi-IkrP0pBqbtr7gqlCGLkGs3yFwATMvWK9n0iIEPD9LMR7B6dSYwFbbqb5FSUYK-LS9zzIGJB5uHsRu5R3CkoMFnbyJZqLcU5woNkg7n4CrBcURIZqV6Ap8H0izbzrVaOavTDdaisefdQGIVDZxrLPlli0VUHGcRNPoKxQyg9uSndD2mZW8ElnTPH8bsNzTGVAdqCCjskqQHrzSjLUjPuppb-fZOXG7g7_VJNbVPPsikMf_-pK_S0DzByBwg3"/>
+<div class="absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="add-btn flex-grow bg-primary text-on-primary font-label-bold py-3 uppercase text-xs tracking-widest active:scale-95">Quick Add</button>
+<button class="add-btn bg-surface text-primary border border-primary w-12 flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<span class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-[10px] font-label-bold uppercase tracking-widest">New</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-lg text-on-surface mb-1">Acoustic One</h3>
+<p class="text-secondary font-label-bold text-xs uppercase tracking-widest">Wireless Over-Ear</p>
+</div>
+<span class="font-body-lg text-primary font-bold">$299.00</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group product-card-hover">
+<div class="relative aspect-square bg-secondary-fixed flex items-center justify-center mb-6 overflow-hidden">
+<img class="w-3/4 object-contain group-hover:scale-105 transition-transform duration-500" data-alt="Modern high-fidelity studio headphones with a vintage wooden aesthetic combined with brushed metal elements. The lighting is crisp and cool, casting sharp but clean shadows against a neutral cream-colored backdrop. The product photography is professional and minimalist, showcasing the fine textures of the wood and leather materials in high detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiuJ_rzfER4KD4ebiRMB4bNbiPwSEnVMhJwZ9GpOPFTYzIYa1hgFmj3fgptYpfWtpGgphb8DFplSQd03BSnLfYIKpB3Dm0cp8aku3VKVx5JYk8Su-YK854WOEFVyP2qWVqW2TBA-m67e1gT6Nch6yDSB6kDlI0UiliQ37JmFM61njvzPy-c3ZHFNz7Wh4WL1MFdfvxfSGUZPi4u5NWoZITFF0q5G0-jDItEXOBSJ3rpoVZmhRcD-z2Hjb7A79Q4C4lJNJfHKRnym_4"/>
+<div class="absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="add-btn flex-grow bg-primary text-on-primary font-label-bold py-3 uppercase text-xs tracking-widest active:scale-95">Quick Add</button>
+<button class="add-btn bg-surface text-primary border border-primary w-12 flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-lg text-on-surface mb-1">Studio Master</h3>
+<p class="text-secondary font-label-bold text-xs uppercase tracking-widest">Referene Open-back</p>
+</div>
+<span class="font-body-lg text-primary font-bold">$450.00</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group product-card-hover">
+<div class="relative aspect-square bg-secondary-fixed flex items-center justify-center mb-6 overflow-hidden">
+<img class="w-3/4 object-contain group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist pure white noise-canceling headphones floating in a bright, ethereal studio space. The lighting is high-key with soft tonal gradients, emphasizing the smooth curves and futuristic design of the audio gear. The style is clinical, modern, and spacious, aligned with a premium tech lifestyle brand. No distractions, just the product and light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvMKXOvaloAgudGGUc-uCs3mwnW4AxfqJWqM-7XgQ9Z9-E0nY4kR-hWe9k-2h_-k2SlFHdafo9PREI8vLhRzl3Izb9t0dMNV1RE81-ElkO4k_Sbf4nHCZWDstZ7neSbDGTYWyFK-HdvIg7pvs93RkU8um3RjkQCk_Wl4ExggvGe_tpyr960KkZWdNwqvXg2K1CpeE4O3rNYvgBM040HKwaUEDsc3ptjpkfUiqad77UNfDY_P7ZCfYGeVxNYkC_DE_kqWRo0jhwopfI"/>
+<div class="absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="add-btn flex-grow bg-primary text-on-primary font-label-bold py-3 uppercase text-xs tracking-widest active:scale-95">Quick Add</button>
+<button class="add-btn bg-surface text-primary border border-primary w-12 flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-lg text-on-surface mb-1">Silence Pro X</h3>
+<p class="text-secondary font-label-bold text-xs uppercase tracking-widest">Active Noise Canceling</p>
+</div>
+<span class="font-body-lg text-primary font-bold">$329.00</span>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group product-card-hover">
+<div class="relative aspect-square bg-secondary-fixed flex items-center justify-center mb-6 overflow-hidden">
+<img class="w-3/4 object-contain group-hover:scale-105 transition-transform duration-500" data-alt="Industrial-style wired headphones with exposed metal frames and large padded earcups. The product is photographed in a high-contrast minimalist style with dramatic, sharp shadows on a bone-colored background. The overall mood is rugged yet sophisticated, highlighting the durability and professional grade of the audio equipment through clinical lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuComDs82cN7yyAZEGZ5nUZA_XbyqvXJ0RrOgZtNVOyfkn_F7Sy-2WKDEbLXuPJPU75uX1fjogZtugnBBgP6W0zYs-XYixKXclJ9oToBbZnvnP4xmshsWI6iKgz2FAGEVKfMw2fMlxSdrB8AR2xirgP2agmkH3_rS_0jl-r9JnXdpgFZs6AoV4HFj_6OTIIhu6EtFcH8acBOXvLtltqmP87Nkutn3hAF9O0aF-dTGyHc-2wbJQaudM9P_QEC_fNPqIZ9uQwRf-0c1-9x"/>
+<div class="absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="add-btn flex-grow bg-primary text-on-primary font-label-bold py-3 uppercase text-xs tracking-widest active:scale-95">Quick Add</button>
+<button class="add-btn bg-surface text-primary border border-primary w-12 flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-lg text-on-surface mb-1">Iron Monitor</h3>
+<p class="text-secondary font-label-bold text-xs uppercase tracking-widest">Heavy Duty Wired</p>
+</div>
+<span class="font-body-lg text-primary font-bold">$189.00</span>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="group product-card-hover">
+<div class="relative aspect-square bg-secondary-fixed flex items-center justify-center mb-6 overflow-hidden">
+<img class="w-3/4 object-contain group-hover:scale-105 transition-transform duration-500" data-alt="Compact, elegant travel headphones in a muted navy blue finish. The lighting is soft and uniform, creating a calm and premium atmosphere. The product is perfectly centered in a square composition, emphasizing its portability and sleek lines. The background is a flat, cool-toned neutral that allows the primary blue color of the product to pop subtly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNQG1eS6tct2Sn0GHXee9Ii4Prc4pafLfziyonbVgxZA6gjIVC5s8Gu5ywlPePYzIkiG0jV_13mhlCfXRpwi9GF1xH94HSbcMTNESPeIVRYH6ztBrdznqjwReCsVdQGs5QuOTZAGc3XKwOFM5wkcgdkoDdLAoac3ErUYWcECGizWnenzUgxW8xUkHoxgVVespF_W_718ZbVP-nyPgScTpT7ibuG2zMnIy0go5ojQe15JrSV-VHPEe4Dgx0LLpknejpVko2MNzsU2A1"/>
+<div class="absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="add-btn flex-grow bg-primary text-on-primary font-label-bold py-3 uppercase text-xs tracking-widest active:scale-95">Quick Add</button>
+<button class="add-btn bg-surface text-primary border border-primary w-12 flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-lg text-on-surface mb-1">Nomad Air</h3>
+<p class="text-secondary font-label-bold text-xs uppercase tracking-widest">Compact Wireless</p>
+</div>
+<span class="font-body-lg text-primary font-bold">$210.00</span>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="group product-card-hover">
+<div class="relative aspect-square bg-secondary-fixed flex items-center justify-center mb-6 overflow-hidden">
+<img class="w-3/4 object-contain group-hover:scale-105 transition-transform duration-500" data-alt="Luxury audiophile-grade headphones featuring gold accents and hand-stitched leather. The lighting is sophisticated, with sharp highlights that glint off the metallic surfaces. Set against an off-white background, the product exudes high-end craftsmanship and technological prestige. The color palette remains minimal but rich, focusing on gold, black, and bone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARUiuBq6iO7vhS0skExekrbE7E7jvd08Xx2nIu1ktnWuMKE5p1ZdsfoDMlSBlL7an_cTwdwszaPWiYNRBvlH_Uz043PpiKYTli79qmikxR1bkjsTg5U8ZXYeSdGBE8xWa1jtSfbICWUUE2LeRtyWA0WHqJLMqPSZ77kkFpGBV0McDM0Ivfl4VbCpvxTIqvXaW4Z4bfIxp3dhTloJaVpQJAw2_QCKApnj_IoT7V1nlYq_IDaPXCxMWXgngRqL48WCwbehVZroCDo-ay"/>
+<div class="absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="add-btn flex-grow bg-primary text-on-primary font-label-bold py-3 uppercase text-xs tracking-widest active:scale-95">Quick Add</button>
+<button class="add-btn bg-surface text-primary border border-primary w-12 flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-lg text-on-surface mb-1">Prestige VII</h3>
+<p class="text-secondary font-label-bold text-xs uppercase tracking-widest">Premium High Fidelity</p>
+</div>
+<span class="font-body-lg text-primary font-bold">$799.00</span>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center border border-outline text-secondary hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="w-10 h-10 flex items-center justify-center bg-primary text-on-primary font-label-bold">1</span>
+<span class="w-10 h-10 flex items-center justify-center border border-transparent text-on-surface hover:bg-surface-container transition-colors cursor-pointer font-label-bold">2</span>
+<span class="w-10 h-10 flex items-center justify-center border border-transparent text-on-surface hover:bg-surface-container transition-colors cursor-pointer font-label-bold">3</span>
+<span class="px-2">...</span>
+<span class="w-10 h-10 flex items-center justify-center border border-transparent text-on-surface hover:bg-surface-container transition-colors cursor-pointer font-label-bold">12</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center border border-outline text-secondary hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant pb-safe flex justify-around items-center h-16 px-base">
+<div class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-label-sm font-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-sm font-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Shopping Bag Drawer (Interaction Simulation) -->
+<div class="fixed inset-0 bg-on-surface/50 z-[100] opacity-0 pointer-events-none transition-opacity duration-300" id="cart-drawer">
+<div class="absolute right-0 top-0 h-full w-full max-w-sm bg-surface translate-x-full transition-transform duration-300 ease-out flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-headline-md text-xl">Bag (2)</h2>
+<span class="material-symbols-outlined cursor-pointer hover:rotate-90 transition-transform" data-icon="close" onclick="toggleCart()">close</span>
+</div>
+<div class="flex-grow overflow-y-auto p-6 custom-scrollbar space-y-6">
+<!-- Cart Item 1 -->
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-secondary-fixed flex-shrink-0">
+<img class="w-full h-full object-contain p-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB6gjYMJfSTSmnx2ahKRthOOhUXubRt5Zv4e6Ud2zCsBSlGgBvdO46Pk0Hhr0dhEVATnD7s36mfn6jmcDnt54LnKd4asEDpkns2xUBLJhbXA-YvODfcn6_61UMDEsYz0WuMF5eIvQgAZQlwF-uUjTL01z4SEFlQPCHsm3ioylvNAnP1UaEZV8x3fzOI0IugX598-ZoKxk24Bd1lL5vJsk-mZMQHQ81K4xG8Ys-3DWMnkiZk6iQTcHiOr3sHnxSxT6RIbdcquwu2fIg"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-bold text-sm">Acoustic One</h4>
+<p class="text-xs text-secondary mt-1">Color: Midnight Black</p>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-bold text-primary">$299.00</span>
+<div class="flex items-center border border-outline px-2 py-1 gap-4">
+<span class="text-xs cursor-pointer">-</span>
+<span class="text-xs">1</span>
+<span class="text-xs cursor-pointer">+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container border-t border-outline-variant">
+<div class="flex justify-between mb-4">
+<span class="font-label-bold text-secondary uppercase text-[10px] tracking-widest">Subtotal</span>
+<span class="font-headline-md text-lg text-primary">$598.00</span>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-bold py-4 uppercase tracking-widest text-xs active:scale-[0.98] transition-transform">Checkout Now</button>
+</div>
+</div>
+</div>
+<script>
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const inner = drawer.querySelector('div');
+            if (drawer.classList.contains('opacity-0')) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                inner.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+                inner.classList.add('translate-x-full');
+            }
+        }
+
+        // Attach listener to shopping bag icon
+        document.querySelector('[data-icon="shopping_bag"]').parentElement.addEventListener('click', toggleCart);
+
+        // Micro-interaction for filter toggles
+        document.querySelectorAll('.filter-section').forEach(section => {
+            section.addEventListener('click', (e) => {
+                if(e.target.closest('.flex')) {
+                    const icon = section.querySelector('[data-icon]');
+                    icon.textContent = icon.textContent === 'add' ? 'remove' : 'add';
+                    // In a real app, logic to collapse content would go here
+                }
+            });
+        });
+    </script>
+</body></html>

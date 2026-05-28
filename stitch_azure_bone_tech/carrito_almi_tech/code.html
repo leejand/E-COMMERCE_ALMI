@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart | ALMI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cart-item-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            background-color: #fcf9f8;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3f2",
+                        "surface-tint": "#2156ca",
+                        "on-secondary-fixed-variant": "#474741",
+                        "on-tertiary-fixed": "#390c00",
+                        "primary-container": "#0047bb",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-surface-variant": "#434653",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1c1c17",
+                        "surface": "#fcf9f8",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "secondary-fixed-dim": "#c9c6bf",
+                        "on-tertiary-fixed-variant": "#832700",
+                        "surface-bright": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#00174a",
+                        "on-secondary-container": "#65645e",
+                        "on-primary-container": "#afc1ff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container-high": "#eae7e7",
+                        "background": "#fcf9f8",
+                        "secondary-fixed": "#e5e2da",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary": "#00328a",
+                        "tertiary": "#6c1f00",
+                        "tertiary-container": "#932d00",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b3c5ff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-background": "#1c1b1b",
+                        "outline": "#737685",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary": "#5f5e58",
+                        "secondary-container": "#e5e2da",
+                        "on-tertiary-container": "#ffb096",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-primary">ALMI</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-bold text-label-bold text-secondary hover:opacity-80 transition-opacity" href="#">Home</a>
+<a class="font-label-bold text-label-bold text-secondary hover:opacity-80 transition-opacity" href="#">Shop</a>
+<a class="font-label-bold text-label-bold text-secondary hover:opacity-80 transition-opacity" href="#">Search</a>
+</div>
+<button class="active:scale-95 transition-transform duration-200 text-primary relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-12">Shopping Cart</h1>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Cart Items List -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Product Card 1 -->
+<div class="flex flex-col md:flex-row gap-6 p-6 bg-secondary-container rounded-none cart-item-transition border border-transparent hover:border-outline-variant">
+<div class="w-full md:w-40 h-40 bg-white flex items-center justify-center p-4 shrink-0">
+<img alt="ALMI Studio Headphones" class="max-w-full max-h-full object-contain mix-blend-multiply" data-alt="A pair of premium minimalist over-ear studio headphones in matte black finish, centered on a pure white background with clinical studio lighting. The high-contrast design emphasizes the clean lines and professional build quality, fitting the ALMI brand aesthetic. Soft shadows highlight the textures of the leather ear pads and metal headband." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEztqvYuA766NL1xEuwkpQMZtdPr3YUbsu8Q3sLsheqt0Nd_4pSI-5yCDpJBetVCrro4e1XoJ1_D3n9YLEmP69_H27px8j7utAQrU7nOKhdkgk-JJynoOaSe74nyil1fkz6AjljebEAO_awM6Syy-V_ZJZl5NyFJWTNOKYW8OuRAEhBvlVXF4dC0pvGobNvujDL-8voFjTW7bj8QCtbLUOYINF3dDUjwX6f8Fu0BhW6s2HwFcSrEtojxYqvpjdNWleJJO4_GFD_hV9"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-body-lg mb-1">ALMI Pro-Studio Wireless</h3>
+<p class="text-on-surface-variant font-body-md text-label-sm">Color: Carbon Black</p>
+</div>
+<p class="font-label-bold text-body-lg text-primary">$299.00</p>
+</div>
+<div class="flex justify-between items-center mt-6">
+<div class="flex items-center border border-outline px-2 py-1">
+<button class="p-1 hover:text-primary active:scale-90 transition-transform"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<span class="px-4 font-label-bold">1</span>
+<button class="p-1 hover:text-primary active:scale-90 transition-transform"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-label-sm font-label-bold">REMOVE</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex flex-col md:flex-row gap-6 p-6 bg-secondary-container rounded-none cart-item-transition border border-transparent hover:border-outline-variant">
+<div class="w-full md:w-40 h-40 bg-white flex items-center justify-center p-4 shrink-0">
+<img alt="ALMI Smart Watch" class="max-w-full max-h-full object-contain mix-blend-multiply" data-alt="A sleek, minimalist smartwatch with a circular brushed titanium casing and a white silicone strap, presented as a hero product shot. The watch face shows a clean digital interface against a bright, airy backdrop. High-key lighting creates sharp reflections on the metal edges, projecting a sense of modern luxury and energetic professionalism consistent with high-end tech branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2iyxsJoGdH0GyEZFWgSrbgMnbjDOIV8zvOdIWwIYoIbqkqen879CWFzIqFpMMvgDQ0nfyhnZ6H2pR5N2wOSI5UfaZtNgexxU40LV7dJSVNhHYo905zvhoSJ5NcF3S1un_EP8Gwu8gCCbIQ-IcV7fCPqiHfL7jyF-Choc7o2evuNxEJFsVJH-4fKKqoIE6kD4h2o5pBEGxfWvUUHlmBBF619eI312JiTmD0Shbc3br_U0O3tI2Zevho_O2ilYWne8U2aO5e_7jeD42"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-body-lg mb-1">ALMI Watch Horizon S</h3>
+<p class="text-on-surface-variant font-body-md text-label-sm">Strap: Arctic White</p>
+</div>
+<p class="font-label-bold text-body-lg text-primary">$349.00</p>
+</div>
+<div class="flex justify-between items-center mt-6">
+<div class="flex items-center border border-outline px-2 py-1">
+<button class="p-1 hover:text-primary active:scale-90 transition-transform"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<span class="px-4 font-label-bold">1</span>
+<button class="p-1 hover:text-primary active:scale-90 transition-transform"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-label-sm font-label-bold">REMOVE</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="lg:col-span-4">
+<div class="bg-white border border-outline-variant p-8 sticky top-32">
+<h2 class="font-headline-md text-body-lg mb-8 uppercase tracking-widest border-b border-outline-variant pb-4">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between">
+<span class="text-on-surface-variant font-body-md">Subtotal</span>
+<span class="font-label-bold">$648.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant font-body-md">Shipping</span>
+<span class="font-label-bold">FREE</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant font-body-md">Estimated Tax</span>
+<span class="font-label-bold">$51.84</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-6 border-t border-on-surface mb-8">
+<span class="font-headline-md text-body-lg">Total</span>
+<span class="font-headline-md text-headline-md text-primary">$699.84</span>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-bold py-4 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 hover:opacity-90">
+                        PROCEED TO CHECKOUT
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<div class="flex items-center gap-4 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined">verified</span>
+<p class="text-label-sm">Secure encrypted checkout</p>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined">local_shipping</span>
+<p class="text-label-sm">Free carbon-neutral delivery</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommended Bento Grid -->
+<section class="mt-section-gap">
+<h2 class="font-headline-md text-headline-md mb-8">Complete the Kit</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="col-span-2 bg-secondary-container p-8 flex flex-col justify-between group">
+<div>
+<span class="text-label-sm font-label-bold text-primary mb-2 block">SAVE 15%</span>
+<h3 class="font-headline-md text-body-lg">ALMI Care+ Extended Protection</h3>
+</div>
+<button class="w-fit border border-on-surface px-6 py-2 mt-12 font-label-bold hover:bg-on-surface hover:text-white transition-colors">ADD TO CART</button>
+</div>
+<div class="col-span-1 bg-secondary-container aspect-square p-6 flex flex-col justify-center items-center group cursor-pointer">
+<img alt="ALMI Lens" class="w-full h-full object-contain mb-4 group-hover:scale-105 transition-transform" data-alt="A professional camera lens with a deep blue glass coating, reflecting soft white studio lights. The lens is positioned vertically on a bone-colored background, emphasizing the high-contrast minimalist aesthetic. The industrial design is sharp and precise, showcasing the high-quality optical components with clinical clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCddgXPqWbZ38Lf9XUGQEFAK169r9O9MCWa-WrP41W_qHDCZmJIZj9f8F_vuSuLl4GYp3pDkC7-PuBSY2sgXDska3YwFUalTe4iUZjtGEAMzP6PPw143vQkwJ9pQ93SHQNHgxe2PaohZthIYcjC-pTZIZM82fqKac3OiKaeHHmU2Oe3ytzenPsGcwmD2qL_s8XFMYCafXH1j3i7LnPsrXiPf1NJ1ms_SCXYojwq2ApbblOfNfT2qyytPYCLEqjn0E3nBvgZYypKjpK1"/>
+<span class="font-label-bold text-label-sm">Protective Lens</span>
+</div>
+<div class="col-span-1 bg-secondary-container aspect-square p-6 flex flex-col justify-center items-center group cursor-pointer">
+<img alt="ALMI Cable" class="w-full h-full object-contain mb-4 group-hover:scale-105 transition-transform" data-alt="A braided premium charging cable in a deep navy blue, coiled elegantly on a minimalist white surface. The metal connectors have a matte finish with the ALMI logo subtly engraved. The lighting is bright and airy, creating a professional tech-lifestyle mood that highlights the durability and aesthetic appeal of the accessory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwwd4qh4o5JrsMQkE5uKL1HOnQJPwfErTkO8e9l3spTFlTGvVAc_uw6guCDKgndAhzWLsxHW33N3MujQLUacMJKZf587tqc86Cq217ICusa3dE9cppobFVp6ShdrXMISgvvJEyjRmFEDccXGlCKRQWjwiizT_Q9Sxy-xmk29CdldteYPMgWLz0dHoG2bcUp_2FkT-ChV9BnvLcWD59_xr3pnzcqTyLW3KKlLrnefLOQEcsNmGMtTDWbvJDpp8BKW9opfUkviV5lDO-"/>
+<span class="font-label-bold text-label-sm">Ultra-link Cable</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 pb-safe bg-surface border-t border-outline-variant flex justify-around items-center h-16">
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for quantity buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Just a visual feedback pulse
+                this.classList.add('opacity-50');
+                setTimeout(() => this.classList.remove('opacity-50'), 100);
+            });
+        });
+
+        // Simple scroll header effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('bg-surface/90', 'bg-white');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('bg-white', 'bg-surface/90');
+            }
+        });
+    </script>
+</body></html>
