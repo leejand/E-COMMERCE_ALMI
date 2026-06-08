@@ -58,11 +58,16 @@
   --font-headline-lg: "Montserrat", sans-serif;
   --font-headline-md: "Montserrat", sans-serif;
   --font-headline-sm: "Montserrat", sans-serif;
+<<<<<<< HEAD
   --font-headline-lg-mobile: "Montserrat", sans-serif;
+=======
+>>>>>>> a9020a046eb16794cde1d6bca73b605bfbe9e19f
   --font-body-lg: "Inter", sans-serif;
   --font-body-md: "Inter", sans-serif;
+  --font-body-sm: "Inter", sans-serif;
   --font-label-bold: "Inter", sans-serif;
   --font-label-sm: "Inter", sans-serif;
+<<<<<<< HEAD
  
   --text-display-lg: 80px;
   --text-display-lg--line-height: 88px;
@@ -83,10 +88,32 @@
   --text-headline-lg-mobile--font-weight: 700;
   --text-body-lg: 18px;
   --text-body-lg--line-height: 28px;
+=======
+
+  --text-display-lg: 72px;
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--letter-spacing: -0.03em;
+  --text-display-lg--font-weight: 700;
+  --text-headline-lg: 56px;
+  --text-headline-lg--line-height: 1.08;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 700;
+  --text-headline-md: 40px;
+  --text-headline-md--line-height: 1.1;
+  --text-headline-md--letter-spacing: -0.02em;
+  --text-headline-md--font-weight: 700;
+  --text-headline-sm: 28px;
+  --text-headline-sm--line-height: 1.15;
+  --text-headline-sm--letter-spacing: -0.01em;
+  --text-headline-sm--font-weight: 600;
+  --text-body-lg: 21px;
+  --text-body-lg--line-height: 1.4;
+>>>>>>> a9020a046eb16794cde1d6bca73b605bfbe9e19f
   --text-body-lg--font-weight: 400;
-  --text-body-md: 16px;
-  --text-body-md--line-height: 24px;
+  --text-body-md: 17px;
+  --text-body-md--line-height: 1.5;
   --text-body-md--font-weight: 400;
+<<<<<<< HEAD
   --text-label-bold: 13px;
   --text-label-bold--line-height: 20px;
   --text-label-bold--letter-spacing: 0.08em;
@@ -105,6 +132,29 @@
   --spacing-margin-desktop: 64px;
   --spacing-section-gap: 140px;
   --spacing-container-max: 1280px;
+=======
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.45;
+  --text-body-sm--font-weight: 400;
+  --text-label-bold: 14px;
+  --text-label-bold--line-height: 1.3;
+  --text-label-bold--letter-spacing: 0.04em;
+  --text-label-bold--font-weight: 600;
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 1.3;
+  --text-label-sm--font-weight: 500;
+
+  --radius-default: 0;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  --spacing-base: 8px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 60px;
+  --spacing-section-gap: 140px;
+  --spacing-container-max: 1200px;
+>>>>>>> a9020a046eb16794cde1d6bca73b605bfbe9e19f
   --spacing-gutter: 24px;
 }
  
@@ -124,9 +174,18 @@ body {
   margin: 0;
   background-color: var(--color-surface);
   color: var(--color-on-surface);
+<<<<<<< HEAD
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+=======
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-open {
+  overflow: hidden;
+>>>>>>> a9020a046eb16794cde1d6bca73b605bfbe9e19f
 }
  
 ::selection {
@@ -138,12 +197,8 @@ body {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   display: inline-block;
   line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
 }
+<<<<<<< HEAD
  
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -330,3 +385,35 @@ body {
     height: 250vh;
   }
 }
+=======
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+>>>>>>> a9020a046eb16794cde1d6bca73b605bfbe9e19f
