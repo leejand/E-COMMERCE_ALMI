@@ -1,73 +1,39 @@
-# React + TypeScript + Vite
+# ALMI Tech — tienda online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda de audio (audífonos, earbuds, parlantes y accesorios) de ALMO S.A.S.
 
-Currently, two official plugins are available:
+**Stack:** React 19 · TypeScript · Vite · Tailwind CSS · React Router · Supabase (opcional)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+cp .env.example .env.local   # y rellena
+npm run dev
+npm run build
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Rutas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Ruta | Vista |
+|---|---|
+| `/` | Inicio con scroll de producto destacado |
+| `/products` | Catálogo con filtros |
+| `/product/:id` | Detalle de producto |
+| `/cart` | Carrito y checkout |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Checkout por WhatsApp
+
+Con `VITE_WHATSAPP_NUMBER` configurado, el botón **Finalizar pedido por WhatsApp** abre el chat con el pedido escrito (productos, cantidades y total) y aparece el botón flotante. Sin número, el checkout queda deshabilitado en vez de no hacer nada.
+
+## Variables de entorno
+
+| Variable | Uso |
+|---|---|
+| `VITE_WHATSAPP_NUMBER` | Número de ventas, formato `573001234567` |
+| `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` | Backend futuro (catálogo, pedidos). Sin ellas la app usa el catálogo local de `src/data/products.ts` |
+
+## Pendiente
+
+- [ ] Conectar el catálogo a Supabase (hoy `src/data/products.ts`).
+- [ ] Traducir la interfaz: mezcla inglés y español.
+- [ ] Imágenes propias (hoy apuntan a `lh3.googleusercontent.com`, pueden dejar de funcionar).

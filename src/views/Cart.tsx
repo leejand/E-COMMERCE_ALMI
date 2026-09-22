@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { products } from '../data/products'
+import { hasWhatsApp, orderMessage, whatsappHref } from '../lib/whatsapp'
 
 export default function Cart() {
   const { items, removeItem, updateQuantity, subtotal } = useCart()
@@ -125,10 +126,27 @@ export default function Cart() {
               <span className="text-headline-sm font-headline-sm text-primary">${total.toFixed(2)}</span>
             </div>
 
-            <button className="w-full bg-primary text-on-primary text-label-bold font-label-bold py-3.5 md:py-4 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 hover:opacity-90">
-              Checkout
-              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </button>
+            {/* Checkout por WhatsApp: el pedido llega escrito y se confirma pago y envío en el chat.
+                Sin número configurado el botón queda deshabilitado en vez de no hacer nada. */}
+            {hasWhatsApp ? (
+              <a
+                href={whatsappHref(orderMessage(items, total)) ?? undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-primary text-on-primary text-label-bold font-label-bold py-3.5 md:py-4 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 hover:opacity-90"
+              >
+                Finalizar pedido por WhatsApp
+                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+            ) : (
+              <button
+                disabled
+                title="Configura VITE_WHATSAPP_NUMBER para activar el checkout"
+                className="w-full bg-primary text-on-primary text-label-bold font-label-bold py-3.5 md:py-4 flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+              >
+                Checkout no disponible
+              </button>
+            )}
 
             <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-outline-variant/20 space-y-3 md:space-y-4">
               <div className="flex items-center gap-2 md:gap-3 text-body-sm font-body-sm text-on-surface-variant">
